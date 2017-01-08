@@ -14,7 +14,7 @@ class QueryBuilder
 	{
 		$statement = $this->pdo->prepare("select * from {$table}");
 
-		$statement->execude();
+		$statement->execute();
 
 		return $statement->fetchAll(PDO::FETCH_CLASS);
 	}
@@ -24,7 +24,7 @@ class QueryBuilder
 		$sql = sprintf(
 			'insert into %s (%s) values (%s)',
 			'one', 'two', 'three'
-		)
+		);
 		
 	}
 }
