@@ -5,7 +5,6 @@
 */
 class Router
 {
-	
 	protected $routes = [
 		'GET' => [],
 		'POST' => []
@@ -19,5 +18,12 @@ class Router
 	public function post($uri, $controller)
 	{
 		$this->routes['POST'][$uri] = $controller;
+	}
+
+	public function direct()
+	{
+		$uri = trim($_SERVER['REQUEST_URI'], '/');
+		$method = $_SERVER['REQUEST_METHOD'];
+		require $this->routes[$method][$uri];
 	}
 }
