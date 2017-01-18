@@ -5,9 +5,5 @@ ini_set('display_errors', 1);
 
 require 'core/bootstrap.php';
 
-$routes = require 'routes.php';
-
-$router->direct();
-
-
-
+require Router::load('routes.php')
+	->direct(Request::uri(), Request::method());

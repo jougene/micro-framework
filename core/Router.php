@@ -10,6 +10,15 @@ class Router
 		'POST' => []
 	];
 
+	public static function load($file)
+	{
+		$router = new static;
+
+		require $file;
+
+		return $router;
+	}
+
 	public function get($uri, $controller)
 	{		
 		$this->routes['GET'][$uri] = $controller;
@@ -20,10 +29,8 @@ class Router
 		$this->routes['POST'][$uri] = $controller;
 	}
 
-	public function direct()
+	public function direct($uri, $method)
 	{
-		$uri = trim($_SERVER['REQUEST_URI'], '/');
-		$method = $_SERVER['REQUEST_METHOD'];
-		require $this->routes[$method][$uri];
+		return $this->routes[$method][$uri];
 	}
 }
