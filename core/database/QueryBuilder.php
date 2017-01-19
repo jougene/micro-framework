@@ -23,8 +23,16 @@ class QueryBuilder
 	{
 		$sql = sprintf(
 			'insert into %s (%s) values (%s)',
-			'one', 'two', 'three'
+			$table,
+			implode(', ', array_keys($parameters)),
+			':' . implode(':',array_keys($parameters))	
 		);
-		
+
+		try {
+			$statement = $this->pdo->prepare($sql);
+			$statement->execute($parameters);
+		} catch (Exception $e) {
+			die('Chtota poschlo ne tak!');			
+		}
 	}
 }

@@ -1,3 +1,5 @@
 <?php
 
-die(var_dump($query));
+$query->insert('todos', $_REQUEST);
+
+header('Location: /');
