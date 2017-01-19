@@ -31,6 +31,10 @@ class Router
 
 	public function direct($uri, $method)
 	{
-		return $this->routes[$method][$uri];
+		if (array_key_exists($uri, $this->routes[$method])) {
+			return $this->routes[$method][$uri];
+		}
+		
+		throw new Exception("No route define for this URI");
 	}
 }
