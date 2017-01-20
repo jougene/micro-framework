@@ -1,5 +1,5 @@
 <?php
 
-$query->insert('todos', $_REQUEST);
+$app['database']->insert('todos', $_REQUEST);
 
 header('Location: /');

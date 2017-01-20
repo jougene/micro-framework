@@ -1,14 +1,9 @@
 <?php
 
-require 'database/Connection.php';
-require 'database/QueryBuilder.php';
-require 'Router.php';
-require 'Request.php';
+$app = [];
 
-$config = require 'config.php';
+$app['config'] = require 'config.php';
 
-$query = new QueryBuilder(
-	Connection::make($config['database'])
+$app['database'] = new QueryBuilder(
+	Connection::make($app['config']['database'])
 );
-
-$router = new Router();
