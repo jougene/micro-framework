@@ -1,5 +1,5 @@
 <?php
 
-$app['database']->insert('todos', $_REQUEST);
+App::get('database')->insert('todos', $_REQUEST);
 
 header('Location: /');
