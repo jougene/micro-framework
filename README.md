@@ -2,7 +2,7 @@
 
 ## Thats some framework, made by [laracasts](https://laracasts.com/series/php-for-beginners/) lessons for learning purposes.
 
-He has only **basic features**:
+It has only **basic features**:
 - work with database (select-all and inserts queries, connection to database),
 - router class with GET and POST methods
 - request class with wrapper over URI and METHOD server variables
