@@ -1,5 +1,8 @@
 <?php 
 
-$router->get('', 'app/controllers/index.php');
-$router->get('about', 'app/controllers/about.php');
-$router->post('task', 'app/controllers/add-task.php');
+$router->get('', 'PagesController@index');
+$router->get('about', 'PagesController@about');
+$router->get('contact', 'PagesController@contact');
+
+$router->get('tasks', 'TaskController@index');
+$router->post('tasks', 'TaskController@store');
