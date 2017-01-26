@@ -14,7 +14,7 @@
 			<?php endif; ?>	
 		<?php endforeach; ?>
 	</ul>
-	<form method="POST" action="/task">
+	<form method="POST" action="/tasks">
 		<input type="text" name="title">
 	</form>
 </body>

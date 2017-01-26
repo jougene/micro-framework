@@ -1,8 +1,7 @@
 <?php
 
-/**
-* Router class
-*/
+namespace App\Core;
+
 class Router
 {
 	protected $routes = [
@@ -37,12 +36,13 @@ class Router
 			);
 		}
 		
-		throw new Exception("No route define for this URI");
+		throw new \Exception("No route define for this URI");
 	}
 
 	public function callAction($controllerName, $action)
 	{
-		$controller = new $controllerName;
+		$controllerFqcn = "App\\Controllers\\{$controllerName}";
+		$controller = new $controllerFqcn;
 		
 		if(! method_exists($controller, $action)) {
 			throw new Exception("No '{$action}' method defined in {$controllerName}");

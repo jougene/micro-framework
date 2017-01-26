@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Core\App;
+
 class TaskController
 {
 	public function index()
@@ -13,6 +17,6 @@ class TaskController
 	{
 		App::get('database')->insert('todos', $_REQUEST);
 
-		return redirect('/');
+		return redirect('/tasks');
 	}
 }
